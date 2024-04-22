@@ -32,7 +32,7 @@ int main() {
     char op;
 
     vector<int> buggies(n);
-    vector<int> prefixSum(n + 1, 0);
+    vector<ll> prefixSum(n + 1, 0);
 
     for (int i = 0; i < n; i++) {
         cin >> buggies[i];
