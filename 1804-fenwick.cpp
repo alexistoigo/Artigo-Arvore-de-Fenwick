@@ -14,8 +14,8 @@ using namespace std;
 
 int n, bit[MAX];
 
-int sum(int pos) {
-    int soma = 0;
+ll sum(int pos) {
+    ll soma = 0;
     while (pos > 0) {
         soma += bit[pos];
         pos -= (pos & -pos);
