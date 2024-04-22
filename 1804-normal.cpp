@@ -39,7 +39,7 @@ int main() {
 
     while (cin >> op >> x) {
         if (op == '?') {
-            int sum = 0;
+            ll sum = 0;
             for (int i = 0; i < x - 1; i++) sum += buggies[i];
             cout << sum << endl;
         } else buggies[x - 1] = 0;
