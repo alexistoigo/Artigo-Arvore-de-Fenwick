@@ -1,16 +1,15 @@
+#pragma GCC optimize("Ofast,02")
+#pragma GCC target("avx,avx2,fma")
+
 #include <bits/stdc++.h>
 
 #define IO std::ios_base::sync_with_stdio(false); std::cin.tie(NULL); std::cout.tie(NULL);
-#define FIN freopen("entrada.txt", "r", stdin);
-#define FOUT freopen("saida.sol", "w", stdout);
-#define ull unsigned long long
 #define ll long long
-#define pii pair<int, int>
-#define pb push_back
-#define MAX int(1e5+6)
-
-const int INF = 0x3f3f3f3f;
+#define MAX int32_t(1e5+10)
+//const int INF = 0x3f3f3f3f;
+const ll LINF = 0x3f3f3f3f3f3f3f3fLL;
 using namespace std;
+using namespace std::chrono;
 
 int n, bit[MAX];
 
@@ -34,6 +33,8 @@ int main() {
 
     IO
 
+    auto start = high_resolution_clock::now();
+
     cin >> n;
     int x;
     char op;
@@ -41,9 +42,13 @@ int main() {
     for (int i = 1; i <= n; i++) cin >> vet[i], update(i, vet[i]);
 
     while (cin >> op >> x) {
-        if (op == '?') cout << sum(x) - vet[x] << "\n";
+        if (op == '?') cout << (sum(x) - long(vet[x])) << "\n";
         else update(x, -vet[x]);
     }
+
+    auto stop = high_resolution_clock::now();
+    cout << "Tempo de execucao: " << duration_cast<microseconds>(stop - start).count() << " microseconds" << endl;
+
 
     return 0;
 }
