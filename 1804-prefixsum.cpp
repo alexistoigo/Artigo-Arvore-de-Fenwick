@@ -1,6 +1,3 @@
-#pragma GCC optimize("Ofast,02")
-#pragma GCC target("avx,avx2,fma")
-
 #include <bits/stdc++.h>
 
 #define IO std::ios_base::sync_with_stdio(false); std::cin.tie(NULL); std::cout.tie(NULL);
@@ -15,6 +12,7 @@
 //const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fLL;
 using namespace std;
+using namespace std::chrono;
 
 int n;
 
@@ -26,6 +24,8 @@ int main() {
     FIN
 //    FOUT
 #endif
+
+    auto start = high_resolution_clock::now();
 
     cin >> n;
     int x;
@@ -47,6 +47,10 @@ int main() {
             }
         }
     }
+
+    auto stop = high_resolution_clock::now();
+    cout << "Tempo de execucao: " << duration_cast<milliseconds>(stop - start).count() << " milliseconds" << endl;
+
 
     return 0;
 }
