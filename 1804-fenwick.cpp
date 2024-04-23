@@ -14,7 +14,7 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fLL;
 using namespace std;
 using namespace std::chrono;
 
-int n, bit[MAX];
+ll n, bit[MAX];
 
 ll sum(int pos) {
     ll soma = 0;
@@ -25,7 +25,7 @@ ll sum(int pos) {
     return soma;
 }
 
-void update(int i, int val) {
+void update(int i, ll val) {
     while (i <= n) {
         bit[i] += val;
         i += (i & -i);
@@ -47,11 +47,11 @@ int main() {
     cin >> n;
     int x;
     char op;
-    vector<int> vet(n + 1, 0);
+    vector<ll> vet(n + 1, 0);
     for (int i = 1; i <= n; i++) cin >> vet[i], update(i, vet[i]);
 
     while (cin >> op >> x) {
-        if (op == '?') cout << sum(x) - long(vet[x]) << "\n";
+        if (op == '?') cout << sum(x) - vet[x] << "\n";
         else update(x, -vet[x]);
     }
 
